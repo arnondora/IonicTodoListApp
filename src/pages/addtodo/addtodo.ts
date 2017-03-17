@@ -18,4 +18,11 @@ export class AddTodoPage {
     this.navCtrl.push(HomePage);
   }
 
+  submitTodo ()
+  {
+    //Save the todo here !
+    
+    this.gotoHome();
+  }
+
 }
