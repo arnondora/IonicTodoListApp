@@ -6,6 +6,11 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AddTodoPage } from '../pages/addtodo/addtodo';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
+import { CategoryPage } from '../pages/category/category';
+import { ProfilePage } from '../pages/profile/profile';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +19,10 @@ import { AddTodoPage } from '../pages/addtodo/addtodo';
     ContactPage,
     HomePage,
     TabsPage,
-    AddTodoPage
+    AddTodoPage,
+    LoginPage,
+    CategoryPage,
+    ProfilePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -26,7 +34,10 @@ import { AddTodoPage } from '../pages/addtodo/addtodo';
     ContactPage,
     HomePage,
     TabsPage,
-    AddTodoPage
+    AddTodoPage,
+    LoginPage,
+    CategoryPage,
+    ProfilePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
