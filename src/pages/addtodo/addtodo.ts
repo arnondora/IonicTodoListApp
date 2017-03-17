@@ -15,7 +15,7 @@ export class AddTodoPage {
 
   gotoHome ()
   {
-    this.navCtrl.push(HomePage);
+    this.navCtrl.pop();
   }
 
   submitTodo ()
