@@ -1,19 +1,40 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>To-Do List App</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-item-group>
+    <ion-item-divider color="primary">School</ion-item-divider>
+    
+    <ion-item>
+      <ion-label>Wireless : Assignment 1</ion-label>
+      <ion-checkbox color="light" checked="false"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>DB Design : Project 1</ion-label>
+      <ion-checkbox color="light" checked="false"></ion-checkbox>
+    </ion-item>
+    
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider color="primary">Home</ion-item-divider>
+    
+    <ion-item>
+      <ion-label>Buy Milk</ion-label>
+      <ion-checkbox color="light" checked="false"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Buy Dinner</ion-label>
+      <ion-checkbox color="light" checked="false"></ion-checkbox>
+    </ion-item>
+    
+  </ion-item-group>
+
   <ion-fab right bottom>
     <button ion-fab color="primary" (click) = "gotoNewTodo()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
