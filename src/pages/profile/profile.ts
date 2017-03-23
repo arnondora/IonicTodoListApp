@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { LoginPage } from '../login/login';
+import { App } from 'ionic-angular';
 
 /*
   Generated class for the Profile page.
@@ -13,10 +15,21 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private app:App) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+  }
+
+  logout ()
+  {
+    this.logUserOut ();
+    this.app.getRootNav().setRoot(LoginPage);
+  }
+
+  logUserOut()
+  {
+    //logout process goes here!
   }
 
 }
