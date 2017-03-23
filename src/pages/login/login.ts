@@ -25,4 +25,9 @@ export class LoginPage {
     this.navCtrl.push(TabsPage)
   }
 
+  loginFacebook ()
+  {
+    this.login();
+  }
+
 }
