@@ -7,7 +7,7 @@ export class ColourService
         this.addNewColor('red','#F44336',0);
     }
 
-    addNewColor(name:string ,code:string, index:number)
+    private addNewColor(name:string ,code:string, index:number)
     {
         var newColor = new Colour(name,code);
         this.color[index] = newColor;
