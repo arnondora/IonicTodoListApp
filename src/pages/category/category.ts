@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AddCategoryPage } from '../addcategory/addcategory';
+import { CategoryHomePage } from '../categoryhome/categoryhome';
 
 /*
   Generated class for the Category page.
@@ -23,6 +24,13 @@ export class CategoryPage {
   showNewCategory()
   {
     this.navCtrl.push(AddCategoryPage);
+  }
+
+  showCategoryDetail (name:string)
+  {
+    this.navCtrl.push(CategoryHomePage, {
+      name : name,
+    });
   }
 
 }
