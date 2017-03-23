@@ -1,0 +1,34 @@
+<!--
+  Generated template for the Category page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{catName}}</ion-title>
+  
+    <ion-buttons end>
+      <button (click)="showNewCategory()" ion-button icon-only>
+        <ion-icon ios="ios-add" md="md-add"></ion-icon>
+      </button>
+    </ion-buttons>
+    
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list inset >
+    <ion-item *ngFor="let item of todos">
+      <ion-label>{{item['body']}}</ion-label>
+      <ion-checkbox color="light" checked="false"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
