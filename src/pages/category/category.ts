@@ -14,8 +14,20 @@ import { CategoryHomePage } from '../categoryhome/categoryhome';
   templateUrl: 'category.html'
 })
 export class CategoryPage {
+  categories : any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams)
+  {
+    this.initDumpData();
+  }
+
+  initDumpData ()
+  {
+    this.categories = [
+      {name : 'School', numItem: 2},
+      {name : 'Home', numItem: 2}
+    ]
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CategoryPage');
