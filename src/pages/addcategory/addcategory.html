@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Todo App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<ion-list>
+  <h2>New Todo</h2>
+  <form (submit)="submitCatagory()">
+    <ion-item>
+      <ion-label floating>Catagory Name</ion-label>
+      <ion-textarea row = "10"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Category Colour</ion-label>
+      <ion-select *ngFor = "let colour of colours">
+        <ion-option value="{{colour.code}}">
+          {{colour.name}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+      <button ion-button type = "submit" block item-right>ADD</button>
+  </form>
+</ion-list>
+</ion-content>

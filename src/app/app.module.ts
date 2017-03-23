@@ -6,6 +6,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AddTodoPage } from '../pages/addtodo/addtodo';
+import { AddCategoryPage } from '../pages/addcategory/addcategory';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { CategoryPage } from '../pages/category/category';
@@ -20,6 +21,7 @@ import { ProfilePage } from '../pages/profile/profile';
     HomePage,
     TabsPage,
     AddTodoPage,
+    AddCategoryPage,
     LoginPage,
     CategoryPage,
     ProfilePage
@@ -35,6 +37,7 @@ import { ProfilePage } from '../pages/profile/profile';
     HomePage,
     TabsPage,
     AddTodoPage,
+    AddCategoryPage,
     LoginPage,
     CategoryPage,
     ProfilePage
