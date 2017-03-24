@@ -24,8 +24,8 @@ export class CategoryPage {
   initDumpData ()
   {
     this.categories = [
-      {name : 'School', numItem: 2},
-      {name : 'Home', numItem: 2}
+      {name : 'School', numItem: 2, colour: "lightgreen"},
+      {name : 'Home', numItem: 2, colour: "blue"}
     ]
   }
 
@@ -38,10 +38,11 @@ export class CategoryPage {
     this.navCtrl.push(AddCategoryPage);
   }
 
-  showCategoryDetail (name:string)
+  showCategoryDetail (name:string, colour:string)
   {
     this.navCtrl.push(CategoryHomePage, {
       name : name,
+      colour: colour
     });
   }
 
