@@ -31,3 +31,104 @@
 body, span, button, h1, h2, h3, h4, h5, h6, p, ion-item, ion-title {
 font-family: 'Roboto' !important;
 }
+
+//Todo Showing
+.todo-header
+{
+    font-size: 1.5em;
+}
+
+.todo-category
+{
+    font-size: 1.2em !important;
+}
+
+.todo-card
+{
+    border-top: 4px solid;
+}
+
+.todo-card-red
+{
+    border-top-color: #F44336;
+}
+
+.todo-card-pink
+{
+    border-top-color: #E91E63;
+}
+
+.todo-card-purple
+{
+    border-top-color: #9C27B0;
+}
+
+.todo-card-deeppurple
+{
+    border-top-color: #673AB7;
+}
+
+.todo-card-indigo
+{
+    border-top-color: #3F51B5;
+}
+
+.todo-card-blue
+{
+    border-top-color: #2196F3;
+}
+
+.todo-card-lightblue
+{
+    border-top-color: #03A9F4
+}
+
+.todo-card-cyan
+{
+    border-top-color: #00BCD4;
+}
+
+.todo-card-teal
+{
+    border-top-color: #009688;
+}
+
+.todo-card-green
+{
+    border-top-color: #4CAF50;
+}
+
+.todo-card-lightgreen
+{
+    border-top-color: #8BC34A;
+}
+
+.todo-card-lime
+{
+    border-top-color: #CDDC39;
+}
+
+.todo-card-yellow
+{
+    border-top-color: #FFEB3B;
+}
+
+.todo-card-lightgreen
+{
+    border-top-color: #8BC34A;
+}
+
+.todo-card-orange
+{
+    border-top-color: #FF9800;
+}
+
+.todo-card-deeporange
+{
+    border-top-color: #FF5722;
+}
+
+.todo-card-brown
+{
+    border-top-color: #795548;
+}
