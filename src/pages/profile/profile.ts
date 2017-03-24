@@ -30,6 +30,11 @@ export class ProfilePage {
 
   logUserOut()
   {
+
+  }
+  
+  showAboutPage()
+  {
     this.navCtrl.push(AboutPage);
   }
 
