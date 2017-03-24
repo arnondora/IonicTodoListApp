@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import { AboutPage } from '../about/about';
 import { App } from 'ionic-angular';
 
 /*
@@ -29,7 +30,7 @@ export class ProfilePage {
 
   logUserOut()
   {
-    //logout process goes here!
+    this.navCtrl.push(AboutPage);
   }
 
 }
