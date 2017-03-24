@@ -13,11 +13,13 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class CategoryHomePage {
   private catName:String;
+  private catColour:String;
   private todos: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) 
   {
     this.catName = navParams.get('name').charAt(0).toUpperCase() + navParams.get('name').slice(1);
+    this.catColour = navParams.get('colour');
     this.initDumpData();
   }
 

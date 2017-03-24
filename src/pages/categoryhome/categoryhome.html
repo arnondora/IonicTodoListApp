@@ -8,13 +8,6 @@
 
   <ion-navbar>
     <ion-title>{{catName}}</ion-title>
-  
-    <ion-buttons end>
-      <button (click)="showNewCategory()" ion-button icon-only>
-        <ion-icon ios="ios-add" md="md-add"></ion-icon>
-      </button>
-    </ion-buttons>
-    
   </ion-navbar>
 
 
@@ -23,12 +16,16 @@
 
 <ion-content>
 
-  <ion-list inset >
-    <ion-item *ngFor="let item of todos">
-      <ion-label>{{item['body']}}</ion-label>
-      <ion-checkbox color="light" checked="false"></ion-checkbox>
-    </ion-item>
-  </ion-list>
+  <ion-card class = "card-md todo-card todo-card-{{catColour}}" *ngFor = "let item of todos">
+    <ion-card-header class = "todo-header"><b>{{item['body']}}</b></ion-card-header>
+    <ion-card-content>
+      <ion-note class = "todo-category" color = "{{catColour}}">Category : <b>{{catName}}</b></ion-note>
+    </ion-card-content>
+
+    <ion-row>
+      <button ion-button clear small color = "primary">I'm Done</button>
+    </ion-row>
+  </ion-card>
 
 
 </ion-content>
