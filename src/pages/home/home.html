@@ -5,34 +5,18 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item-group>
-    <ion-item-divider color="lightgreen">School</ion-item-divider>
-    
-    <ion-item>
-      <ion-label>Wireless : Assignment 1</ion-label>
-      <ion-checkbox color="light" checked="false"></ion-checkbox>
-    </ion-item>
+  <ion-item-group  *ngFor = "let cat of categories">
+    <ion-card class = "card-md todo-card todo-card-{{cat['colour']}}" *ngFor = "let item of cat['todos']">
+      <ion-card-header class = "todo-header"><b>{{item['body']}}</b></ion-card-header>
+      <ion-card-content>
+        <ion-note class = "todo-category" color = "{{cat['colour']}}">Category : <b>{{cat['name']}}</b></ion-note>
+      </ion-card-content>
 
-    <ion-item>
-      <ion-label>DB Design : Project 1</ion-label>
-      <ion-checkbox color="light" checked="false"></ion-checkbox>
-    </ion-item>
-    
-  </ion-item-group>
+      <ion-row>
+        <button ion-button clear small color = "primary">I'm Done</button>
+      </ion-row>
+    </ion-card>
 
-  <ion-item-group>
-    <ion-item-divider color="blue">Home</ion-item-divider>
-    
-    <ion-item>
-      <ion-label>Buy Milk</ion-label>
-      <ion-checkbox color="light" checked="false"></ion-checkbox>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Buy Dinner</ion-label>
-      <ion-checkbox color="light" checked="false"></ion-checkbox>
-    </ion-item>
-    
   </ion-item-group>
 
   <ion-fab right bottom>

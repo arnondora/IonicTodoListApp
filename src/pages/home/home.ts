@@ -10,8 +10,18 @@ import { AddTodoPage } from '../addtodo/addtodo';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  private categories: any;
 
+  constructor(public navCtrl: NavController) {
+    this.initDumpData();
+  }
+
+  initDumpData ()
+  {
+    this.categories = [
+      {name: 'School', colour: 'lightgreen', todos : [{body: 'Wireless: Assignment 1'},{body: 'DB Design: Project 1'}]},
+      {name: 'Home', colour: 'blue', todos : [{body: 'Buy Milk'},{body: 'Buy Dinner'}]},
+    ];
   }
 
   gotoNewTodo ()
