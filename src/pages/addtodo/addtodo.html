@@ -7,26 +7,23 @@
 </ion-header>
 
 <ion-content padding>
-<ion-list>
-  <h2>New Todo</h2>
-  <form (submit)="submitTodo()">
-    <ion-item>
-      <ion-label floating>Add a to-do</ion-label>
-      <ion-textarea row = "10"></ion-textarea>
-    </ion-item>
+<form (submit)="submitTodo()">
+  <ion-list>
+    <h2>New Todo</h2>
+      <ion-item>
+        <ion-label floating>Add a to-do</ion-label>
+        <ion-textarea row = "10"></ion-textarea>
+      </ion-item>
 
-    <ion-item>
-      <ion-label>Catagory</ion-label>
-      <ion-select>
-        <ion-option value="family">Family</ion-option>
-        <ion-option value="personal">Personal</ion-option>
-        <ion-option value="school">School</ion-option>
-      </ion-select>
-    </ion-item>
-
-    <ion-item right>
-      <button ion-button type = "submit" block item-right>ADD</button>
-    </ion-item>
-  </form>
-</ion-list>
+      <ion-item>
+        <ion-label>Catagory</ion-label>
+        <ion-select>
+          <ion-option value="family">Family</ion-option>
+          <ion-option value="personal">Personal</ion-option>
+          <ion-option value="school">School</ion-option>
+        </ion-select>
+      </ion-item>
+  </ion-list>
+  <button ion-button type = "submit" block item-right>ADD</button>
+</form>
 </ion-content>
