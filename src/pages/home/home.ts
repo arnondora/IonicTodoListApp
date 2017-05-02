@@ -4,6 +4,9 @@ import { NavController } from 'ionic-angular';
 
 import { AddTodoPage } from '../addtodo/addtodo';
 
+import { AuthService } from '../../providers/auth-service';
+import { AngularFire, FirebaseListObservable} from 'angularfire2';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -11,9 +14,33 @@ import { AddTodoPage } from '../addtodo/addtodo';
 export class HomePage {
 
   private categories: any;
+  private uid: string;
+  private displayName: string;
+  private profileImgURL: string;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public af: AngularFire, private _auth: AuthService) {
+    //prepare user info
+    this.af.auth.subscribe(auth => {
+      if(auth){
+        this.uid = auth.uid;
+        this.displayName = auth.facebook.displayName
+        this.profileImgURL = auth.facebook.photoURL;
+      }
+    });
+
+    this.initDB();
     this.initDumpData();
+  }
+
+  //This Function Create Schema For Each User
+  initDB ()
+  {
+    this.af.database.object('users/' + this.uid).set({
+        uid: this.uid,
+        name: this.displayName,
+        profile: this.profileImgURL,
+        registered: Date.now()
+    });
   }
 
   initDumpData ()

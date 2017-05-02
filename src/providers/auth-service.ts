@@ -34,12 +34,4 @@ export class AuthService {
       return '';
     }
   }
-
-  uid(): string {
-    if (this.authState != null) {
-      return this.authState.facebook.uid;
-    } else {
-      return '';
-    }
-  }
 }
