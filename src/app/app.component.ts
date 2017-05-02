@@ -5,13 +5,14 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { ColourService} from './services/colour.service';
 
 import { LoginPage } from '../pages/login/login';
+import { TabsPage } from '../pages/tabs/tabs';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = LoginPage;
+  rootPage: any
 
   constructor(platform: Platform, af: AngularFire) {
     platform.ready().then(() => {
@@ -19,6 +20,17 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
+      const authObserver = af.auth.subscribe( user => {
+        if (user)
+        {
+          this.rootPage = TabsPage;
+          authObserver.unsubscribe();
+        } else
+        {
+          this.rootPage = LoginPage;
+          authObserver.unsubscribe();
+        }
+      });
     });
   }
 }
