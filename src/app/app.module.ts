@@ -1,5 +1,5 @@
-import { NgModule, ErrorHandler } from '@angular/core';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { NgModule } from '@angular/core';
+import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -9,11 +9,11 @@ import { AddTodoPage } from '../pages/addtodo/addtodo';
 import { AddCategoryPage } from '../pages/addcategory/addcategory';
 import { CategoryHomePage } from '../pages/categoryhome/categoryhome';
 import { LoginPage } from '../pages/login/login';
-import { RegisterPage } from '../pages/register/register';
 import { CategoryPage } from '../pages/category/category';
 import { ProfilePage } from '../pages/profile/profile';
 import { BrowserModule } from '@angular/platform-browser';
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireModule} from 'angularfire2';
+import { AuthService } from '../providers/auth-service';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyCvKdaWp-011dOOf_i_u0R2CbWzjQLmnlw',
@@ -21,11 +21,6 @@ export const firebaseConfig = {
   databaseURL: 'https://todolist-74862.firebaseio.com',
   storageBucket: 'todolist-74862.appspot.com',
   messagingSenderId: '324758375416'
-};
-
-const myFirebaseAuthConfig = {
-  provider: AuthProviders.Facebook,
-  method: AuthMethods.Redirect
 };
 
 @NgModule({
@@ -45,7 +40,7 @@ const myFirebaseAuthConfig = {
   imports: [
     IonicModule.forRoot(MyApp),
     BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -61,6 +56,6 @@ const myFirebaseAuthConfig = {
     CategoryPage,
     ProfilePage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [AuthService]
 })
 export class AppModule {}
