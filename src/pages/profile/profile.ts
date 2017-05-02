@@ -4,6 +4,7 @@ import { LoginPage } from '../login/login';
 import { AboutPage } from '../about/about';
 import { App } from 'ionic-angular';
 import { AngularFire } from 'angularfire2';
+import { AuthService } from '../../providers/auth-service';
 
 /*
   Generated class for the Profile page.
@@ -17,7 +18,7 @@ import { AngularFire } from 'angularfire2';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private app:App, public af: AngularFire) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private app:App, public af: AngularFire, private _auth: AuthService) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
@@ -31,7 +32,7 @@ export class ProfilePage {
 
   logUserOut()
   {
-    this.af.auth.logout();
+    this._auth.signOut()
   }
 
   showAboutPage()

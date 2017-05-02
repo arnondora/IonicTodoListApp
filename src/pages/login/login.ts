@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
-import { AngularFire } from 'angularfire2';
+import { AuthService } from '../../providers/auth-service';
+import { AngularFire, FirebaseListObservable} from 'angularfire2';
 
 /*
   Generated class for the Login page.
@@ -15,7 +16,9 @@ import { AngularFire } from 'angularfire2';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public af: AngularFire) {}
+  items: FirebaseListObservable<any[]>;
+
+  constructor(public navCtrl: NavController, public af: AngularFire, private _auth: AuthService) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -26,9 +29,18 @@ export class LoginPage {
     this.navCtrl.push(TabsPage)
   }
 
-  loginFacebook ()
+  signInWithFacebook(): void
   {
-    this.af.auth.login();
+  this._auth.signInWithFacebook()
+    .then(() => this.onSignInSuccess());
   }
+
+  private onSignInSuccess(): void
+  {
+    console.log(JSON.parse(this._auth.displayName()));
+    this.login();
+  }
+
+
 
 }
