@@ -12,7 +12,21 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { CategoryPage } from '../pages/category/category';
 import { ProfilePage } from '../pages/profile/profile';
+import { BrowserModule } from '@angular/platform-browser';
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
+export const firebaseConfig = {
+  apiKey: 'AIzaSyCvKdaWp-011dOOf_i_u0R2CbWzjQLmnlw',
+  authDomain: 'todolist-74862.firebaseapp.com',
+  databaseURL: 'https://todolist-74862.firebaseio.com',
+  storageBucket: 'todolist-74862.appspot.com',
+  messagingSenderId: '324758375416'
+};
+
+const myFirebaseAuthConfig = {
+  provider: AuthProviders.Facebook,
+  method: AuthMethods.Redirect
+};
 
 @NgModule({
   declarations: [
@@ -29,7 +43,9 @@ import { ProfilePage } from '../pages/profile/profile';
     ProfilePage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    BrowserModule,
+    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

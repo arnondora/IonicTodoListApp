@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { AngularFire } from 'angularfire2';
 
 /*
   Generated class for the Login page.
@@ -14,7 +15,7 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, public af: AngularFire) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -27,7 +28,7 @@ export class LoginPage {
 
   loginFacebook ()
   {
-    this.login();
+    this.af.auth.login();
   }
 
 }

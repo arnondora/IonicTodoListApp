@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AboutPage } from '../about/about';
 import { App } from 'ionic-angular';
+import { AngularFire } from 'angularfire2';
 
 /*
   Generated class for the Profile page.
@@ -16,7 +17,7 @@ import { App } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private app:App) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private app:App, public af: AngularFire) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
@@ -30,9 +31,9 @@ export class ProfilePage {
 
   logUserOut()
   {
-
+    this.af.auth.logout();
   }
-  
+
   showAboutPage()
   {
     this.navCtrl.push(AboutPage);
