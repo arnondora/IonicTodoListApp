@@ -22,7 +22,6 @@ export class ProfilePage {
   private displayName: string;
   private profileImgURL: string;
   private email: string;
-  private registered: Date;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private app:App, public af: AngularFire, private _auth: AuthService)
   {
