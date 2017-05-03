@@ -58,10 +58,6 @@ export class CategoryPage {
     this.categoryList = af.database.list('/users/' + this.uid + '/categories');
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CategoryPage');
-  }
-
   showNewCategory()
   {
     this.navCtrl.push(AddCategoryPage);

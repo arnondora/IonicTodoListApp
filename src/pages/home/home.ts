@@ -86,7 +86,6 @@ export class HomePage {
 
   deleteTodo (CatName: string, itemUid: string)
   {
-    console.log(CatName + " " + itemUid);
     this.af.database.list('/users/' + this.uid + '/categories/' + CatName + '/todos/' + itemUid).remove();
   }
 

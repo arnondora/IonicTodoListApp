@@ -11,10 +11,6 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, private _auth: AuthService) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
-
   login ()
   {
     this.navCtrl.push(TabsPage)

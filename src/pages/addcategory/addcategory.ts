@@ -32,7 +32,6 @@ export class AddCategoryPage {
         this.uid = auth.uid;
       });
 
-      // console.log('User uid : ' + this.uid);
   }
 
   initDatabasePath (af: AngularFire) : void
@@ -52,7 +51,6 @@ export class AddCategoryPage {
 
   submitCatagory ()
   {
-    console.log(this.todo);
     //Save the todo here !
     this.af.database.object('/users/' + this.uid + '/categories/' + this.todo['name']).set({
       name : this.todo['name'],

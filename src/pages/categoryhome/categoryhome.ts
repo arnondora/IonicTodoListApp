@@ -29,12 +29,6 @@ export class CategoryHomePage {
     this.initDataFromDB();
   }
 
-  //Page Life Cycle
-  ionViewDidLoad() {
-    console.log(this.catName + ' Page has been loaded');
-  }
-
-
   initUserProfile ()
   {
       this.af.auth.subscribe(auth => {

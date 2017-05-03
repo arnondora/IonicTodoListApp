@@ -36,10 +36,6 @@ export class ProfilePage {
     });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
-  }
-
   logout ()
   {
     this.logUserOut ();
