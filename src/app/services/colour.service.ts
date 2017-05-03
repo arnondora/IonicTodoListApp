@@ -5,7 +5,8 @@ export class ColourService
     constructor ()
     {
         this.color = [
-            { name : "Red", code : "#F44336"}
+            { name : "Red", code : "F44336"},
+            { name : "Pink", code : "E91E63"},
         ];
     }
 
