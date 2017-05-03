@@ -21,15 +21,11 @@
 
 
 <ion-content padding>
-  <ion-avatar item-center><img class = "img-reponsive" src = "img/nobita.png"></ion-avatar>
-  <h2 style = "text-align:center">Nobi Nobita</h2>
+  <ion-avatar item-center><img class = "img-reponsive center" src = "{{profileImgURL}}"></ion-avatar>
+  <h2 style = "text-align:center">{{displayName}}</h2>
   <ion-list inset>
     <ion-item>
-      Email : nobi@mail.com
-    </ion-item>
-
-    <ion-item>
-      Last Logged in : 20 Jan 2015
+      Email : {{email}}
     </ion-item>
   </ion-list>
 

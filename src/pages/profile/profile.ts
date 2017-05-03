@@ -18,7 +18,24 @@ import { AuthService } from '../../providers/auth-service';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private app:App, public af: AngularFire, private _auth: AuthService) {}
+  private uid: string;
+  private displayName: string;
+  private profileImgURL: string;
+  private email: string;
+  private registered: Date;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private app:App, public af: AngularFire, private _auth: AuthService)
+  {
+    //Init App With User Profile
+    this.af.auth.subscribe(auth => {
+      if(auth){
+        this.uid = auth.uid;
+        this.displayName = auth.facebook.displayName
+        this.profileImgURL = auth.facebook.photoURL;
+        this.email = auth.facebook.email;
+      }
+    });
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');

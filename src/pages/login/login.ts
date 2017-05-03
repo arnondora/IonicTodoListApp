@@ -37,7 +37,6 @@ export class LoginPage {
 
   private onSignInSuccess(): void
   {
-    console.log(JSON.parse(this._auth.displayName()));
     this.login();
   }
 
