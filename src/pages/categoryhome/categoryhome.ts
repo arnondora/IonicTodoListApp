@@ -50,7 +50,8 @@ export class CategoryHomePage {
           snapshots.forEach(snapshot => {
             this.todos.push({
               body: snapshot.val()['name'],
-              category: this.catName
+              category: this.catName,
+              uid: snapshot.key,
             });
          });
       });
@@ -67,6 +68,12 @@ export class CategoryHomePage {
       {body: "Buy Milk" , category : "Home"},
       {body: "Buy Dinner", category: "Home"}
     ];
+  }
+
+  deleteTodo (CatName: string, itemUid: string)
+  {
+    console.log(CatName + " " + itemUid);
+    this.af.database.list('/users/' + this.uid + '/categories/' + CatName + '/todos/' + itemUid).remove();
   }
 
 }

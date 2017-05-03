@@ -6,7 +6,7 @@ import { AddTodoPage } from '../addtodo/addtodo';
 
 import { AuthService } from '../../providers/auth-service';
 
-import { AngularFire, FirebaseListObservable} from 'angularfire2';
+import { AngularFire} from 'angularfire2';
 
 @Component({
   selector: 'page-home',
@@ -65,7 +65,10 @@ export class HomePage {
             this.af.database.list('/users/' + this.uid + '/categories/' + cat.val()['name'] + '/todos/', { preserveSnapshot: true})
             .subscribe(todos => {
               todos.forEach(todo => {
-                todoList.push({body: todo.val()['name']});
+                todoList.push({
+                  uid: todo.key,
+                  body: todo.val()['name']
+                });
               })
             });
 
@@ -79,6 +82,12 @@ export class HomePage {
 
          });
       });
+  }
+
+  deleteTodo (CatName: string, itemUid: string)
+  {
+    console.log(CatName + " " + itemUid);
+    this.af.database.list('/users/' + this.uid + '/categories/' + CatName + '/todos/' + itemUid).remove();
   }
 
   gotoNewTodo ()
