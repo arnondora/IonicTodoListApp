@@ -31,12 +31,12 @@ export class HomePage {
       }
     });
 
-    this.initDB(af);
+    this.initUserProfileDB(af);
     this.initDumpData();
   }
 
   //This Function Create Schema For Each User
-  initDB (af: AngularFire)
+  initUserProfileDB (af: AngularFire)
   {
     af.database.list('/users/', { preserveSnapshot: true}).subscribe(snapshots=>{
       if (snapshots.length == 0)
@@ -46,7 +46,7 @@ export class HomePage {
             name: this.displayName,
             profile: this.profileImgURL,
             registered: Date.now()
-        });        
+        });
       }
     })
 
