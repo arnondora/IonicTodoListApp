@@ -8,13 +8,13 @@
 
   <ion-navbar>
     <ion-title>Category</ion-title>
-  
+
     <ion-buttons end>
       <button (click)="showNewCategory()" ion-button icon-only>
         <ion-icon ios="ios-add" md="md-add"></ion-icon>
       </button>
     </ion-buttons>
-    
+
   </ion-navbar>
 
 
@@ -26,8 +26,7 @@
 <ion-list inset>
   <button ion-item *ngFor="let item of categories" (click)="showCategoryDetail(item['name'],item['colour'])">
     {{ item['name']}}
-    <ion-note item-right>{{item['numItem']}} Item(s)</ion-note>
-  </button> 
+  </button>
 </ion-list>
 
 
