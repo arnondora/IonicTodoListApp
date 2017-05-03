@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { AngularFire} from 'angularfire2';
 
@@ -19,7 +19,7 @@ export class CategoryHomePage {
   private todos: Array<any>;
   private uid: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public af: AngularFire)
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public af: AngularFire)
   {
     //Get Data From Previous Page
     this.catName = navParams.get('name').charAt(0).toUpperCase() + navParams.get('name').slice(1);
@@ -74,6 +74,34 @@ export class CategoryHomePage {
   {
     console.log(CatName + " " + itemUid);
     this.af.database.list('/users/' + this.uid + '/categories/' + CatName + '/todos/' + itemUid).remove();
+  }
+
+  deleteCategoryPrompt(CatName: string) {
+    let confirm = this.alertCtrl.create({
+      title: 'Delete Category',
+      message: 'All Todos inside this category will be deleted, this operation cannot be undone. Are you sure to delete ' + CatName +'?',
+      buttons: [
+        {
+          text: 'Yes I am sure!',
+          handler: () => {
+            this.deleteCategory(CatName);
+            this.navCtrl.pop();
+          }
+        },
+        {
+          text: 'No I am not',
+          handler: () => {
+            //Do Nothing
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+  deleteCategory(CatName: string)
+  {
+    this.af.database.list('/users/' + this.uid + '/categories').remove(CatName);
   }
 
 }
