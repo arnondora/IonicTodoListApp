@@ -8,18 +8,16 @@
 
 <ion-content>
 <ion-list>
-  <form (submit)="submitCatagory()">
+  <form (ngSubmit)="submitCatagory()">
     <ion-item>
       <ion-label floating>Catagory Name</ion-label>
-      <ion-textarea row = "10"></ion-textarea>
+      <ion-textarea row = "10"  name = "name" [(ngModel)] = "todo.name"></ion-textarea>
     </ion-item>
 
     <ion-item>
       <ion-label>Category Colour</ion-label>
-      <ion-select *ngFor = "let colour of colours">
-        <ion-option value="{{colour.code}}">
-          {{colour.name}}
-        </ion-option>
+      <ion-select name = "colour" [(ngModel)] = "todo.colour">
+        <ion-option *ngFor = "let colour of colours" value="{{colour.code}}">{{colour.name}}</ion-option>
       </ion-select>
     </ion-item>
 
