@@ -31,19 +31,25 @@ export class HomePage {
       }
     });
 
-    this.initDB();
+    this.initDB(af);
     this.initDumpData();
   }
 
   //This Function Create Schema For Each User
-  initDB ()
+  initDB (af: AngularFire)
   {
-    this.af.database.object('users/' + this.uid).set({
-        uid: this.uid,
-        name: this.displayName,
-        profile: this.profileImgURL,
-        registered: Date.now()
-    });
+    af.database.list('/users/', { preserveSnapshot: true}).subscribe(snapshots=>{
+      if (snapshots.length == 0)
+      {
+        this.af.database.object('users/' + this.uid).set({
+            uid: this.uid,
+            name: this.displayName,
+            profile: this.profileImgURL,
+            registered: Date.now()
+        });        
+      }
+    })
+
   }
 
   initDumpData ()
