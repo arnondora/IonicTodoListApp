@@ -17,14 +17,16 @@ export class HomePage {
   private uid: string;
   private displayName: string;
   private profileImgURL: string;
+  private email: string;
 
   constructor(public navCtrl: NavController, public af: AngularFire, private _auth: AuthService) {
     //prepare user info
     this.af.auth.subscribe(auth => {
       if(auth){
         this.uid = auth.uid;
-        this.displayName = auth.facebook.displayName
+        this.displayName = auth.facebook.displayName;
         this.profileImgURL = auth.facebook.photoURL;
+        this.email = auth.facebook.email;
       }
     });
 
