@@ -62,14 +62,6 @@ export class CategoryHomePage {
     this.todos = Array();
   }
 
-  initDumpData ()
-  {
-    this.todos = [
-      {body: "Buy Milk" , category : "Home"},
-      {body: "Buy Dinner", category: "Home"}
-    ];
-  }
-
   deleteTodo (CatName: string, itemUid: string)
   {
     console.log(CatName + " " + itemUid);
