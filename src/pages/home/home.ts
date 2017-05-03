@@ -32,7 +32,7 @@ export class HomePage {
     });
 
     this.initUserProfileDB(af);
-    this.initDumpData();
+    this.initTodos();
   }
 
   //This Function Create Schema For Each User
@@ -52,12 +52,33 @@ export class HomePage {
 
   }
 
-  initDumpData ()
+  initTodos ()
   {
-    this.categories = [
-      {name: 'School', colour: 'lightgreen', todos : [{body: 'Wireless: Assignment 1'},{body: 'DB Design: Project 1'}]},
-      {name: 'Home', colour: 'blue', todos : [{body: 'Buy Milk'},{body: 'Buy Dinner'}]},
-    ];
+    //Get Category
+    this.af.database.list('/users/' + this.uid + '/categories', { preserveSnapshot: true})
+      .subscribe(cats=>{
+          this.categories = Array();
+          cats.forEach(cat => {
+
+            var todoList = Array();
+            //Get todos for each category
+            this.af.database.list('/users/' + this.uid + '/categories/' + cat.val()['name'] + '/todos/', { preserveSnapshot: true})
+            .subscribe(todos => {
+              todos.forEach(todo => {
+                todoList.push({body: todo.val()['name']});
+              })
+            });
+
+
+            this.categories.push({
+              name: cat.val()['name'],
+              colour: cat.val()['colour'],
+              todos: todoList,
+            });
+
+
+         });
+      });
   }
 
   gotoNewTodo ()
