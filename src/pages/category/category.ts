@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { AddCategoryPage } from '../addcategory/addcategory';
 import { CategoryHomePage } from '../categoryhome/categoryhome';
 
+import { AngularFire, FirebaseListObservable} from 'angularfire2';
+
 /*
   Generated class for the Category page.
 
@@ -14,19 +16,46 @@ import { CategoryHomePage } from '../categoryhome/categoryhome';
   templateUrl: 'category.html'
 })
 export class CategoryPage {
-  categories : any;
+  private categories : Array<any>;
+  private uid: string;
+  private categoryList: FirebaseListObservable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams)
+  constructor(public navCtrl: NavController, public navParams: NavParams, public af: AngularFire)
   {
-    this.initDumpData();
+    this.initUserProfile();
+    this.initDatabasePath(af);
+    this.initDataFromDB();
   }
 
-  initDumpData ()
+  initUserProfile ()
   {
-    this.categories = [
-      {name : 'School', numItem: 2, colour: "lightgreen"},
-      {name : 'Home', numItem: 2, colour: "blue"}
-    ]
+      this.af.auth.subscribe(auth => {
+        this.uid = auth.uid;
+      });
+  }
+
+  initDataFromDB ()
+  {
+    this.af.database.list('/users/' + this.uid + '/categories', { preserveSnapshot: true})
+      .subscribe(snapshots=>{
+          this.clearList();
+          snapshots.forEach(snapshot => {
+            this.categories.push({
+              name: snapshot.val()['name'],
+              colour: snapshot.val()['colour']
+            });
+         });
+      });
+  }
+
+  clearList ()
+  {
+    this.categories = Array();
+  }
+
+  initDatabasePath (af: AngularFire) : void
+  {
+    this.categoryList = af.database.list('/users/' + this.uid + '/categories');
   }
 
   ionViewDidLoad() {
